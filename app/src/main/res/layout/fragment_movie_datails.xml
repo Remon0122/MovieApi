@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- صورة الخلفية -->
+        <ImageView
+            android:id="@+id/imageBackdrop"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:contentDescription="Backdrop" />
+
+        <!-- بوستر الفيلم -->
+        <ImageView
+            android:id="@+id/imagePoster"
+            android:layout_width="140dp"
+            android:layout_height="210dp"
+            android:layout_marginTop="-80dp"
+            android:layout_marginStart="16dp"
+            android:scaleType="centerCrop"
+            android:contentDescription="Poster"
+            android:elevation="4dp" />
+
+        <!-- العنوان -->
+        <TextView
+            android:id="@+id/textTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Movie Title"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_marginTop="16dp" />
+
+        <!-- التقييم والتاريخ -->
+        <TextView
+            android:id="@+id/textRatingRelease"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="⭐ 8.5  |  2024-01-01"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="14sp"
+            android:layout_marginTop="4dp" />
+
+        <!-- الأنواع -->
+        <TextView
+            android:id="@+id/textGenres"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Action, Drama"
+            android:textStyle="italic"
+            android:layout_marginTop="8dp" />
+
+        <!-- الوصف -->
+        <TextView
+            android:id="@+id/textOverview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Movie overview goes here..."
+            android:layout_marginTop="16dp"
+            android:textSize="16sp" />
+
+        <!-- زر إضافة للمفضلة -->
+        <Button
+            android:id="@+id/btnAddToFavorite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add to Favorite"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="@android:color/holo_red_dark"
+            android:textColor="@android:color/white" />
+
+    </LinearLayout>
+</ScrollView>

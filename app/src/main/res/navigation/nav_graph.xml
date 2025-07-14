@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/popularFragment">
+
+    <fragment
+        android:id="@+id/popularFragment"
+        android:name="com.example.movieapi.presentation.home.PopularFragment"
+        android:label="Popular" />
+
+    <fragment
+        android:id="@+id/topRatedFragment"
+        android:name="com.example.movieapi.presentation.home.TopRatedFragment"
+        android:label="Top Rated" />
+
+    <fragment
+        android:id="@+id/nowPlayingFragment"
+        android:name="com.example.movieapi.presentation.home.MovieFragment"
+        android:label="Now Playing" />
+</navigation>
