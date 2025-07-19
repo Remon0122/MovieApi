@@ -8,6 +8,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
+
 class FavoritesRepositoryImpl @Inject constructor(
     private val dao: MovieDao
 ) : FavoritesRepository {
@@ -17,14 +18,16 @@ class FavoritesRepositoryImpl @Inject constructor(
     }
 
     override suspend fun removeFromFavorites(movieId: Int) {
-        dao.deleteById(movieId)
+        dao.delete(movieId)
     }
+
+    override suspend fun getAllFavorites(): Flow<List<Movie>> {
+        return dao.getAllFavorites().map { list -> list.map { it.toDomain() } }
+    }
+
 
     override suspend fun isFavorite(movieId: Int): Boolean {
         return dao.isFavorite(movieId)
     }
-
-    override fun getAllFavorites(): Flow<List<Movie>> {
-        return dao.getAll().map { list -> list.map { it.toDomain() } }
-    }
 }
+

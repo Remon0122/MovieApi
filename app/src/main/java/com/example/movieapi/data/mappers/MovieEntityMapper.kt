@@ -11,9 +11,12 @@ fun MovieEntity.toDomain(): Movie {
         overview = overview,
         posterPath = posterPath,
         releaseDate = releaseDate,
-        voteAverage = voteAverage
+        voteAverage = voteAverage,
+        backdropPath = backdropPath
+        // ممكن تضيف runtime و genres و status إذا كنت بتخزنهم كمان
     )
 }
+
 
 // من Domain → إلى Entity (للحفظ في Room)
 fun Movie.toEntity(): MovieEntity {
@@ -23,6 +26,8 @@ fun Movie.toEntity(): MovieEntity {
         overview = overview,
         posterPath = posterPath,
         releaseDate = releaseDate,
-        voteAverage = voteAverage
+        voteAverage = voteAverage,
+        backdropPath = backdropPath
     )
 }
+

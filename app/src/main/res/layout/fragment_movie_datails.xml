@@ -69,15 +69,19 @@
             android:layout_marginTop="16dp"
             android:textSize="16sp" />
 
-        <!-- زر إضافة للمفضلة -->
-        <Button
-            android:id="@+id/btnAddToFavorite"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Add to Favorite"
+        <ImageButton
+            android:id="@+id/btnFavorite"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="end"
             android:layout_marginTop="24dp"
-            android:backgroundTint="@android:color/holo_red_dark"
-            android:textColor="@android:color/white" />
+            android:layout_marginEnd="8dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Add to Favorites"
+            android:scaleType="centerInside"
+            android:padding="8dp"
+            android:src="@drawable/ic_favorite_border"
+            app:tint="@android:color/holo_red_dark" />
 
     </LinearLayout>
 </ScrollView>

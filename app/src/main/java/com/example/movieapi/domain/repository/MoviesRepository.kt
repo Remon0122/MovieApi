@@ -1,11 +1,16 @@
-package com.example.movieapi.domain.repository
+package com.example.movieapi.data.repository
 
 import com.example.movieapi.domain.model.Movie
+import kotlinx.coroutines.flow.Flow
 
 interface MoviesRepository {
-    suspend fun getPopularMovies(apiKey: String): List<Movie>
-    suspend fun getTopRatedMovies(apiKey: String): List<Movie>
-    suspend fun getNowPlayingMovies(apiKey: String): List<Movie>
-    suspend fun searchMovies(apiKey: String, query: String): List<Movie>
-    suspend fun getMovieDetails(apiKey: String, movieId: Int): Movie
+
+    fun getFavoritesMovie(): Flow<List<Movie>>
+    suspend fun addMovieToFavorites(movie: Movie)
+    suspend fun removeMovieFromFavorites(movie: Movie)
+    suspend fun isMovieFavorite(movieId: Int): Boolean
+    suspend fun getTopRatedMovies(): List<Movie>
+    suspend fun getNowPlayingMovies(page: Int): List<Movie>
+    suspend fun searchMovies(query: String): List<Movie>
+    suspend fun getMovieDetails(movieId: Int): Movie
 }

@@ -9,6 +9,7 @@ import com.example.movieapi.data.room.dao.MovieDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -54,14 +55,14 @@ object AppModule {
 
     // Provide Room Database
     @Provides
-    @Singleton
-    fun provideAppDatabase(appContext: Context): AppDatabase {
+    fun provideAppDatabase(
+        @ApplicationContext appContext: Context
+    ): AppDatabase {
         return Room.databaseBuilder(
             appContext,
             AppDatabase::class.java,
-            "movies_db"
-        ).fallbackToDestructiveMigration() // حذف القاعدة إذا تغيّر الـ schema
-            .build()
+            "movie_database"
+        ).build()
     }
 
     // Provide DAO

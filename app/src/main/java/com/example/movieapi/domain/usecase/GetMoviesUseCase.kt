@@ -4,11 +4,11 @@ import com.example.movieapi.data.repository.MoviesRepository
 import com.example.movieapi.domain.model.Movie
 import javax.inject.Inject
 
-
-class SearchMoviesUseCase @Inject constructor(
+class GetMoviesUseCase @Inject constructor(
     private val repository: MoviesRepository
 ) {
-    suspend operator fun invoke(query: String): List<Movie> {
-        return repository.searchMovies(query)
+    suspend operator fun invoke(page: Int): List<Movie> {
+        return repository.getNowPlayingMovies(page)
     }
 }
+

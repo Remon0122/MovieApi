@@ -1,22 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<navigation
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/popularFragment">
+    app:startDestination="@id/MovieFragment">
 
+    <!-- Now Playing Fragment -->
     <fragment
-        android:id="@+id/popularFragment"
-        android:name="com.example.movieapi.presentation.home.PopularFragment"
-        android:label="Popular" />
+        android:id="@+id/MovieFragment"
+        android:name="com.example.movieapi.presentation.home.Movie.MovieFragment"
+        android:label="Now Playing">
+        <action
+            android:id="@+id/action_movieFragment_to_movieDetailsFragment"
+            app:destination="@id/movieDetailsFragment" />
+        <action
+            android:id="@+id/action_movieFragment_to_favoritesFragment"
+            app:destination="@id/favoritesFragment" />
+        <action
+            android:id="@+id/action_movieFragment_to_topRatedFragment"
+            app:destination="@id/topRatedFragment" />
+    </fragment>
 
+    <!-- Favorites Fragment -->
+    <fragment
+        android:id="@+id/favoritesFragment"
+        android:name="com.example.movieapi.presentation.home.favorites.FavoritesFragment"
+        android:label="Favorites">
+        <action
+            android:id="@+id/action_favoritesFragment_to_movieDetailsFragment"
+            app:destination="@id/movieDetailsFragment" />
+        <action
+            android:id="@+id/action_favoritesFragment_to_movieFragment"
+            app:destination="@id/MovieFragment" />
+        <action
+            android:id="@+id/action_favoritesFragment_to_topRatedFragment"
+            app:destination="@id/topRatedFragment" />
+    </fragment>
+
+    <!-- Top Rated Fragment -->
     <fragment
         android:id="@+id/topRatedFragment"
-        android:name="com.example.movieapi.presentation.home.TopRatedFragment"
-        android:label="Top Rated" />
+        android:name="com.example.movieapi.presentation.home.reted.TopRatedFragment"
+        android:label="Top Rated">
+        <action
+            android:id="@+id/action_topRatedFragment_to_movieDetailsFragment"
+            app:destination="@id/movieDetailsFragment" />
+        <action
+            android:id="@+id/action_topRatedFragment_to_movieFragment"
+            app:destination="@id/MovieFragment" />
+        <action
+            android:id="@+id/action_topRatedFragment_to_favoritesFragment"
+            app:destination="@id/favoritesFragment" />
+    </fragment>
 
+    <!-- Movie Details Fragment -->
     <fragment
-        android:id="@+id/nowPlayingFragment"
-        android:name="com.example.movieapi.presentation.home.MovieFragment"
-        android:label="Now Playing" />
+        android:id="@+id/movieDetailsFragment"
+        android:name="com.example.movieapi.presentation.details.MovieDetailsFragment"
+        android:label="Movie Details">
+        <argument
+            android:name="movieId"
+            app:argType="integer" />
+    </fragment>
+
 </navigation>
